@@ -56,7 +56,7 @@ public class test {
 	}
 	
 	public void observeValue() throws InterruptedException{
-		/*Request request = new Request(Code.GET);
+		Request request = new Request(Code.GET);
 		request.setURI("coap://[aaaa::444f:4f50:a729:142c]:5683/pwr/w");
 		request.setObserve();
 		
@@ -68,7 +68,7 @@ public class test {
 				
 			}});
 		
-		request.send();*/
+		request.send();
 		CoapClient client = new CoapClient("coap://[aaaa::444f:4f50:a729:142c]:5683/pwr/w");
 		System.out.println("SYNCHRONOUS");
 		// synchronous
@@ -113,18 +113,18 @@ public class test {
 	
 	
 	public static void main(String args[]) throws InterruptedException {
-		//mongodb mdb = new mongodb();
+		mongodb mdb = new mongodb();
 		test test = new test();
 		test.postConnection("1");
-		//test.getValue();
+		test.getValue();
 		test.observeValue();
-		/*Request request = new Request(Code.POST);
+		Request request = new Request(Code.POST);
 		request.setURI("coap://[aaaa::444f:4f50:a729:142c]:5683/pwr/rel");
 		request.setPayload("1");
 		request.send();
 		org.eclipse.californium.core.coap.Response response = request.waitForResponse();
-		//Endpoint endpoint = EndpointManager.getEndpointManager().getDefaultEndpoint();
-		//request.send(endpoint);*/
+		Endpoint endpoint = EndpointManager.getEndpointManager().getDefaultEndpoint();
+		request.send(endpoint);
 		
 		
 	}
